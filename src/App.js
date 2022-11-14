@@ -4,10 +4,14 @@ import { ThreeApp } from './canvas/threeApp';
 
 function App() {
   const divRef = useRef(null);
+  let addThreeApp = true;
 
   useEffect(() => {
     if(!divRef) return;
-    const threeApp = new ThreeApp(divRef.current);
+    if(addThreeApp){
+      const threeApp = new ThreeApp(divRef.current);
+      addThreeApp = false;
+    }
   }, [divRef]) 
 
   
